@@ -4,7 +4,8 @@
   (:import [polyglot.java JavaExample]
            [polyglot.scala ScalaExample ScalaExample$]
            [scala.collection.immutable List Map Nil Nil$ $colon$colon $colon$colon$]
-           [scala.collection JavaConverters JavaConverters$])
+           [scala.collection JavaConverters JavaConverters$]
+           [scala None$])
   (:gen-class))
 
 (defn describe 
@@ -56,7 +57,18 @@
         .toArray
         vec
         prn)
-  ))
+  )
+  
+  (println "Scala Option example")
+  (println "Some Option[String] content:" (-> (ScalaExample$/MODULE$)
+                                              (.returnOption true); return a Option[String] type with the "Ok" value, extract it with the .get method.
+                                              .get
+                                              ))
+  (println "None returned?:" (-> (ScalaExample$/MODULE$)
+                                 (.returnOption false); return a Option[String] with None result
+                                 (= (None$/MODULE$)); Since None$ is a singleton, you can compare it direct to the singleton instance
+                                 ))
+  )
 
 (defn -main
   [& args]

@@ -25,4 +25,5 @@ class ScalaExample(namee: String) {
 object ScalaExample {
   val sao_bernardo = new SaintBernard()
   def sayHello() = println(s"Hello from Scala unknown person!!")
+  def returnOption(b : Boolean) : Option[String] = if (b) Some("Ok") else None
 }
